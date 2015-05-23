@@ -1,10 +1,17 @@
-.pesho {
-	color:red;
+body {
+    text-align: center;
 }
 
-.pesho:hover {
-	color:blue 
+.button {
+    background-color: rgb(91, 155, 213);
+    width: 200px;
+    height: 50px;
+    color: white;
+    display: inline-block;
+    padding-top: 15px;
+    font-weight: bold;
 }
-.even_row {
-	background: red;
+
+a:hover {
+    text-decoration: none;
 }
