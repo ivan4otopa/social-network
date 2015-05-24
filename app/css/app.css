@@ -15,3 +15,28 @@ body {
 a:hover {
     text-decoration: none;
 }
+
+.side-curtain {
+    height: 655px;
+    background-color: rgb(91, 155, 213);
+    margin: -15px;
+}
+
+#loginForm {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin-left: 33%;
+    margin-top: 15%;
+    padding-top: 5%;
+    text-align: center;
+}
+
+input, label {
+    display: block;
+}
+
+input {
+    margin-left: 70px;
+    margin-bottom: 20px;
+}
