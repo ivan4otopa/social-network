@@ -13,9 +13,9 @@
 		<input type="password" id="confirm-password" ng-model="userData.confirmPassword" required><br />
 		<input type="text" id="name" ng-model="userData.name" required><br />
 		<input type="email" id="email" ng-model="userData.email" required>
-		<input type="radio" id="gender" name="gender" value="male" ng-model="userData.gender">Male
-		<input type="radio" id="gender" name="gender" value="female" ng-model="userData.gender">Female
-		<input type="radio" id="gender" name="gender" value="other" ng-model="userData.gender">Other
+		<input type="radio" id="gender" name="gender" value="1" ng-model="userData.gender">Male
+		<input type="radio" id="gender" name="gender" value="2" ng-model="userData.gender">Female
+		<input type="radio" id="gender" name="gender" value="0" ng-model="userData.gender">Other
 	</div>
 	<a ng-click="register(userData)" class="button">Register</a>
 </form>

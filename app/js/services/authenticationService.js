@@ -25,6 +25,26 @@ socialNetwork.factory('authenticationService', function ($http, baseServiceUrl) 
 					success(data);
 				})
 				.error(error);
+		},
+		logout: function () {
+			delete sessionStorage['currentUser'];
+		},
+		getCurrentUser: function () {
+			var currentUser = sessionStorage['currentUser'];
+
+			if(currentUser) {
+				return JSON.parse(sessionStorage['currentUser']);
+			}
+		},
+		getAuthorizationHeaders: function () {
+			var headers = {};
+			var currentUser = this.getCurrentUser();
+
+			if(currentUser) {
+				headers['Authorization'] = 'Bearer ' + currentUser.access_token;
+			}
+
+			return headers;
 		}
 	};
 });

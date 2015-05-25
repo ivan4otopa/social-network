@@ -18,7 +18,8 @@ socialNetwork.config(function ($routeProvider) {
 	});
 
 	$routeProvider.when('/home', {
-		templateUrl: 'views/home.html'
+		templateUrl: 'views/home.html',
+		controller: 'ProfileController'
 	});
 
 	$routeProvider.otherwise({ redirectTo: '/'});

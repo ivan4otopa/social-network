@@ -8,6 +8,7 @@ socialNetwork.controller('RegisterController', function ($scope, $location, auth
 			},
 			function error(error) {
 				notifyService.showError('Registration failed', error);
-			});
+			}
+		);
 	};
 });
