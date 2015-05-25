@@ -17,5 +17,9 @@ socialNetwork.config(function ($routeProvider) {
 		controller: 'RegisterController'
 	});
 
+	$routeProvider.when('/home', {
+		templateUrl: 'views/home.html'
+	});
+
 	$routeProvider.otherwise({ redirectTo: '/'});
 });

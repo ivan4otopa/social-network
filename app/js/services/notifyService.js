@@ -30,7 +30,7 @@ socialNetwork.factory('notifyService', function () {
             }
 
             if (errors.length > 0) {
-                msg = msg + ":<br>" + errors.join("<br>");
+                message = message + ":<br>" + errors.join("<br>");
             }
 
             noty({

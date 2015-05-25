@@ -3,7 +3,7 @@ socialNetwork.factory('authenticationService', function ($http, baseServiceUrl) 
 		register: function (userData, success, error) {
 			var request = {
 				method: 'POST',
-				url: baseServiceUrl + '/api/user/register',
+				url: baseServiceUrl + '/api/users/register',
 				data: userData
 			};
 			$http(request)
