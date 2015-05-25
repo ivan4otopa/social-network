@@ -16,7 +16,7 @@ socialNetwork.factory('authenticationService', function ($http, baseServiceUrl) 
 		login: function (userData, success, error) {
 			var request = {
 				method: 'POST',
-				url: baseServiceUrl + '/api/user/login',
+				url: baseServiceUrl + '/api/users/login',
 				data: userData
 			};
 			$http(request)

@@ -12,6 +12,10 @@ body {
     font-weight: bold;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 a:hover {
     text-decoration: none;
 }

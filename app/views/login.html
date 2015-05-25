@@ -3,5 +3,5 @@
 	<input type="text" id="username" ng-model="userData.username" required /><br />
 	<label for="password">Password</label><br />
 	<input type="password" id="password" ng-model="userData.password" required />
-	<a href="#/home" class="button">Login</a>
+	<a ng-click="login(userData)" class="button">Login</a>
 </form>

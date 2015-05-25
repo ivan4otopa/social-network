@@ -7,7 +7,8 @@ socialNetwork.controller('LoginController', function ($scope, $location, authent
 				$location.path('/home');
 			},
 			function error(error) {
-				notifyService.showError('Login failed', error)
+				notifyService.showError('Login failed', error);
+				console.log(error);
 			});
 	};
 });
