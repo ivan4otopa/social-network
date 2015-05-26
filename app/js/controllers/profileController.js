@@ -10,4 +10,17 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 			}
 		);
 	})();
+
+	$scope.showNewsFeedHeading = true;
+	$scope.showPendingFriendRequestsHeading = false;
+
+	$scope.showNewsFeed = function () {
+		$scope.showNewsFeedHeading = true;
+		$scope.showPendingFriendRequestsHeading = false;
+	};
+
+	$scope.showPendingFriendRequests = function () {
+		$scope.showNewsFeedHeading = false;
+		$scope.showPendingFriendRequestsHeading = true;
+	};
 });

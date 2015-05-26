@@ -1,16 +1,23 @@
 <div ng-controller="ProfileController">
 	<span id="name">{{user.name}}</span>
 	<span id="user-search">
-		<input type="text" ng-model="userSearch" placeholder="Search...">
+		<input type="text" ng-model="userSearch" placeholder="Search..." />
 	</span>
 	<span id="options-menu">
-		<a href="#/" class="navigation-button">News Feed</a></li>
-		<a href="#/pendingFriendRequests" class="navigation-button">Pending Friend Requests</a></li>
-		<a href="#/editProfile" class="navigation-button">Edit Profile</a></li>
-		<a href="#/changePassword" class="navigation-button">Change Password</a></li>
-		<a ng-click="logout()" class="navigation-button">Logout</a></li>
+		<a ng-click="showNewsFeed()" class="navigation-button">News Feed</a>
+		<a ng-click="showPendingFriendRequests()" class="navigation-button">Pending Friend Requests</a>
+		<a href="#/profile" class="navigation-button">Edit Profile</a>
+		<a href="#/profile/password" class="navigation-button">Change Password</a>
+		<a ng-click="logout()" class="navigation-button">Logout</a>
 	</span>
+	<div ng-if="showNewsFeedHeading">
+		<hr>
+		<h3>News Feed</h3>
+		<hr>
+	</div>
+	<div ng-if="showPendingFriendRequestsHeading">
+		<hr>
+		<h3>Pending Friend Requests</h3>
+		<hr>
+	</div>
 </div>
-<hr />
-<h3>News Feed</h3>
-<hr />

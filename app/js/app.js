@@ -8,5 +8,13 @@ socialNetwork.config(function ($routeProvider) {
 		controller: 'HomeController'
 	});
 
+	$routeProvider.when('/profile', {
+		templateUrl: 'views/editProfile.html'
+	});
+
+	$routeProvider.when('/profile/password', {
+		templateUrl: 'views/changePassword.html'
+	});
+
 	$routeProvider.otherwise({ redirectTo: '/'});
 });

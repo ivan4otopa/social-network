@@ -89,4 +89,9 @@ label {
 #user-search {
     float: right;
     margin-top: 3px;
+    height: 30px;
+}
+
+.navigation-button:hover {
+    cursor: pointer;
 }
