@@ -1,1 +1,16 @@
-a
+<div ng-controller="ProfileController">
+	<span id="name">{{user.name}}</span>
+	<span id="user-search">
+		<input type="text" ng-model="userSearch" placeholder="Search...">
+	</span>
+	<span id="options-menu">
+		<a href="#/" class="navigation-button">News Feed</a></li>
+		<a href="#/pendingFriendRequests" class="navigation-button">Pending Friend Requests</a></li>
+		<a href="#/editProfile" class="navigation-button">Edit Profile</a></li>
+		<a href="#/changePassword" class="navigation-button">Change Password</a></li>
+		<a ng-click="logout()" class="navigation-button">Logout</a></li>
+	</span>
+</div>
+<hr />
+<h3>News Feed</h3>
+<hr />
