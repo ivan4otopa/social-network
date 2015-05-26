@@ -1,3 +1,2 @@
-<a ng-click="logout()" class="button">Get Me</a>
-<a ng-click="getMe()" class="button">Get Me</a>
-{{name}}
+<div ng-include="'views/welcome.html'" ng-if="!isLoggedIn"></div>
+<div ng-include="'views/news-feed.html'" ng-if="isLoggedIn"></div>

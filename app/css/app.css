@@ -30,8 +30,8 @@ a:hover {
     width: 300px;
     height: 300px;
     border: 1px solid black;
-    margin-left: 33%;
-    margin-top: 15%;
+    margin-left: 31%;
+    margin-top: 10%;
     padding-top: 5%;
     text-align: center;
 }
@@ -47,14 +47,22 @@ input {
 
 #register-form {
     width: 400px;
-    height: 380px;
+    height: 450px;
     border: 1px solid black;
     margin-left: 25%;
-    margin-top: 15%;
+    margin-top: 10%;
     padding-top: 5%;
     text-align: center;
 }
 
 label {
     margin-bottom: 26px;
+}
+
+#login-form > .button:first-of-type {
+    margin-bottom: 10px;
+}
+
+#register-form > .button:first-of-type {
+    margin-bottom: 10px;
 }

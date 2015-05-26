@@ -2,5 +2,37 @@
 <p>
 	Welcome! Please, login or register.
 </p>
-<a href="#/login" class="button">Login</a>
-<a href="#/register" class="button">Register</a>
+<a ng-click="loginClicked()" class="button" ng-if="!buttonHide">Login</a>
+<a ng-click="registerClicked()" class="button" ng-if="!buttonHide">Register</a>
+
+<form id="login-form" ng-if="loginShow" ng-controller="LoginController">
+	<label for="username">Username</label><br />
+	<input type="text" id="username" ng-model="userData.username" required /><br />
+	<label for="password">Password</label><br />
+	<input type="password" id="password" ng-model="userData.password" required />
+	<a ng-click="login(userData)" class="button">Login</a>
+	<a ng-click="loginCancelClicked()" class="button">Cancel</a>
+</form>
+
+<form id="register-form" ng-if="registerShow" ng-controller="RegisterController">
+	<div class="col-md-6">
+		<label for="username">Username</label><br />
+		<label for="password">Password</label><br />
+		<label for="confirm-password">Confirm Password</label><br />
+		<label for="name">Name</label><br />
+		<label for="email">Email</label><br />
+		<label>Gender</label>
+	</div>
+	<div class="col-md-6">
+		<input type="text" id="username" ng-model="userData.username" required><br />
+		<input type="password" id="password" ng-model="userData.password" required><br />
+		<input type="password" id="confirm-password" ng-model="userData.confirmPassword" required><br />
+		<input type="text" id="name" ng-model="userData.name" required><br />
+		<input type="email" id="email" ng-model="userData.email" required>
+		<input type="radio" id="gender" name="gender" value="1" ng-model="userData.gender">Male
+		<input type="radio" id="gender" name="gender" value="2" ng-model="userData.gender">Female
+		<input type="radio" id="gender" name="gender" value="0" ng-model="userData.gender">Other
+	</div>
+	<a ng-click="register(userData)" class="button">Register</a>
+	<a ng-click="registerCancelClicked()" class="button">Cancel</a>
+</form>

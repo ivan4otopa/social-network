@@ -45,6 +45,9 @@ socialNetwork.factory('authenticationService', function ($http, baseServiceUrl) 
 			}
 
 			return headers;
+		},
+		isLoggedIn: function () {
+			return sessionStorage['currentUser'] != undefined;
 		}
 	};
 });
