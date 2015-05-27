@@ -35,6 +35,18 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 					success(data);
 				})
 				.error(error);
+		},
+		getOwnFriends: function (success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/me/friends',
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
 		}
 	};
 });

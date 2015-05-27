@@ -26,24 +26,40 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 		);
 	};
 
-	$scope.getFriendRequests = function () {
+	$scope.getFriendRequests = (function () {
 		userService.getFriendRequests(
 			function success(data) {
 				$scope.friendRequests = data;
-				$scope.friendRequestsExist = true;
+				$scope.numberOfFriendRequests = data.length;
 			},
 			function error(error) {
 
 			}
 		);
-	};
+	})();
+
+	$scope.getOwnFriends = (function () {
+		userService.getOwnFriends(
+			function success(data) {
+				$scope.friends = data;
+				$scope.friendsCount = data.length;
+			},
+			function error() {
+
+			}
+		);
+	}());
 
 	$scope.hideFoundUsers = function () {
 		$scope.foundUsersExist = false;
 		$('search-users').val('');
 	};
 
+	$scope.pendingFriendRequestsClicked = function () {
+		$scope.friendRequestsExist = true;
+	};
+
 	$scope.hideFriendRequests = function () {
 		$scope.friendRequestsExist = false;
-	}
+	};
 });

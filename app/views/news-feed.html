@@ -1,11 +1,14 @@
 <div ng-controller="ProfileController">
 	<span id="name">{{user.name}}</span>
+	<span>
+		<img src="{{user.profileImageData}}" id="profile-image" />
+	</span>
 	<span id="user-search">
 		<input type="text" id="search-users" ng-model="userSearchText" ng-change="getUsersByName(userSearchText)" placeholder="Search..." />
 	</span>
 	<span id="options-menu">
 		<a href="#/" class="navigation-button">News Feed</a>
-		<a ng-click="getFriendRequests()" class="navigation-button">Pending Friend Requests</a>
+		<a ng-click="pendingFriendRequestsClicked()" class="navigation-button">Pending Friend Requests</a><span id="requests-number">{{numberOfFriendRequests}}</span>
 		<a href="#/profile" class="navigation-button">Edit Profile</a>
 		<a href="#/profile/password" class="navigation-button">Change Password</a>
 		<a ng-click="logout()" class="navigation-button">Logout</a>
@@ -35,4 +38,10 @@
 		</li>
 		<a ng-click="hideFriendRequests()" class="button">Hide</a>
 	</ul>
+	<div id="friends-list">
+		<div id="friends-count">Friends - {{friendsCount}} total</div>
+		<div>
+			<span ng-repeat="friend in friends" class="friend-container">{{friend.name}}</span>
+		</div>
+	</div>
 </div>

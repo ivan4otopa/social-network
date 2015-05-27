@@ -121,3 +121,39 @@ label {
     border: 1px solid black;
     padding-left: 0;
 }
+
+#requests-number {
+    border: 2px solid red;
+    background-color: rgb(255, 71, 71);
+    border-radius: 5px;
+    color: white;
+    width: 30px;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+#friends-list {
+    border: 1px solid black;
+    width: 300px;
+    height: 180px;
+    margin-left: 470px;
+}
+
+#friends-count {
+    border: 1px solid black;
+    width: 299px;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    text-align: left;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.friend-container {
+    float: left;
+    width: 100px;
+    height: 75px;
+}
