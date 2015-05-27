@@ -1,4 +1,7 @@
 socialNetwork.controller('ProfileController', function ($scope, userService, authenticationService, notifyService) {
+	$scope.foundUsersExist = false;
+	$scope.showNewsFeedHeading = true;
+	$scope.showPendingFriendRequestsHeading = false;
 	$scope.getCurrentUserInfo = (function () {
 		userService.getCurrentUserInfo(
 			authenticationService.getCurrentUser().userName,
@@ -11,8 +14,18 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 		);
 	})();
 
-	$scope.showNewsFeedHeading = true;
-	$scope.showPendingFriendRequestsHeading = false;
+	$scope.getUsersByName = function (userSearchText) {
+		userService.getUsersByName(
+			userSearchText,
+			function success(data) {
+				$scope.foundUsers = data;
+				$scope.foundUsersExist = true;
+			},
+			function error(error) {
+
+			}
+		);
+	};
 
 	$scope.showNewsFeed = function () {
 		$scope.showNewsFeedHeading = true;
