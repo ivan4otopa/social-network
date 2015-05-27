@@ -1,10 +1,9 @@
 socialNetwork.controller('ProfileController', function ($scope, userService, authenticationService, notifyService) {
 	$scope.foundUsersExist = false;
-	$scope.showNewsFeedHeading = true;
-	$scope.showPendingFriendRequestsHeading = false;
+	$scope.friendRequestsExist = false;
+
 	$scope.getCurrentUserInfo = (function () {
 		userService.getCurrentUserInfo(
-			authenticationService.getCurrentUser().userName,
 			function success(data) {
 				$scope.user = data;
 			},
@@ -27,13 +26,24 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 		);
 	};
 
-	$scope.showNewsFeed = function () {
-		$scope.showNewsFeedHeading = true;
-		$scope.showPendingFriendRequestsHeading = false;
+	$scope.getFriendRequests = function () {
+		userService.getFriendRequests(
+			function success(data) {
+				$scope.friendRequests = data;
+				$scope.friendRequestsExist = true;
+			},
+			function error(error) {
+
+			}
+		);
 	};
 
-	$scope.showPendingFriendRequests = function () {
-		$scope.showNewsFeedHeading = false;
-		$scope.showPendingFriendRequestsHeading = true;
+	$scope.hideFoundUsers = function () {
+		$scope.foundUsersExist = false;
+		$('search-users').val('');
 	};
+
+	$scope.hideFriendRequests = function () {
+		$scope.friendRequestsExist = false;
+	}
 });

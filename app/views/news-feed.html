@@ -1,33 +1,38 @@
 <div ng-controller="ProfileController">
 	<span id="name">{{user.name}}</span>
 	<span id="user-search">
-		<input type="text" ng-model="userSearchText" ng-change="getUsersByName(userSearchText)" placeholder="Search..." />
+		<input type="text" id="search-users" ng-model="userSearchText" ng-change="getUsersByName(userSearchText)" placeholder="Search..." />
 	</span>
 	<span id="options-menu">
-		<a ng-click="showNewsFeed()" class="navigation-button">News Feed</a>
-		<a ng-click="showPendingFriendRequests()" class="navigation-button">Pending Friend Requests</a>
+		<a href="#/" class="navigation-button">News Feed</a>
+		<a ng-click="getFriendRequests()" class="navigation-button">Pending Friend Requests</a>
 		<a href="#/profile" class="navigation-button">Edit Profile</a>
 		<a href="#/profile/password" class="navigation-button">Change Password</a>
 		<a ng-click="logout()" class="navigation-button">Logout</a>
 	</span>
-	<div ng-if="showNewsFeedHeading">
-		<hr>
-		<h3>News Feed</h3>
-		<hr>
-	</div>
-	<div ng-if="showPendingFriendRequestsHeading">
-		<hr>
-		<h3>Pending Friend Requests</h3>
-		<hr>
-	</div>
+	<hr>
+	<h3>News Feed</h3>
+	<hr>
 	<ul type="none" ng-if="foundUsersExist" id="found-users-list">
 		<li ng-repeat="user in foundUsers">
 			<div class="user-container">
 				<div>
-					<img src="{{user.profileImageData}}" />
+					<img class="found-user-image" src="{{user.profileImageData}}" />
 				</div>
 				<div>{{user.name}}</div>
 			</div>
 		</li>
+		<a ng-click="hideFoundUsers()" class="button">Hide</a>
+	</ul>
+	<ul type="none" ng-if="friendRequestsExist" id="friend-request-list">
+		<li ng-repeat="friendRequest in friendRequests">
+			<div class="friend-request-container">
+				<div>
+					<img src="{{friendRequest.user.profileImageData}}">
+				</div>
+				<div>{{friendRequest.user.name}}</div>
+			</div>
+		</li>
+		<a ng-click="hideFriendRequests()" class="button">Hide</a>
 	</ul>
 </div>

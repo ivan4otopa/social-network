@@ -1,9 +1,9 @@
 socialNetwork.factory('userService', function ($http, baseServiceUrl, authenticationService) {
 	return {
-		getCurrentUserInfo: function (username, success, error) {
+		getCurrentUserInfo: function (success, error) {
 			var request = {
 				method: 'GET',
-				url: baseServiceUrl + '/api/users/' + username,
+				url: baseServiceUrl + '/api/me',
 				headers: authenticationService.getAuthorizationHeaders()
 			};
 			$http(request)
@@ -16,6 +16,18 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 			var request = {
 				method: 'GET',
 				url: baseServiceUrl + '/api/users/search?searchTerm=' + searchTerm,
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
+		},
+		getFriendRequests: function (success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/me/requests',
 				headers: authenticationService.getAuthorizationHeaders()
 			};
 			$http(request)
