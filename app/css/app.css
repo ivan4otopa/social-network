@@ -104,13 +104,13 @@ label {
     padding-left: 0;
 }
 
-.user-container {
+.user-container, .friend-request-container {
     width: 200px;
     height: 100px;
     border: 1px solid black;
 }
 
-.found-user-image {
+.found-user-image, .friend-request-user-image {
     max-width: 45px;
 }
 
@@ -120,10 +120,4 @@ label {
     top: 27px;
     border: 1px solid black;
     padding-left: 0;
-}
-
-.friend-request-container {
-    width: 200px;
-    height: 100px;
-    border: 1px solid black;
 }

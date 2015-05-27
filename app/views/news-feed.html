@@ -17,7 +17,7 @@
 		<li ng-repeat="user in foundUsers">
 			<div class="user-container">
 				<div>
-					<img class="found-user-image" src="{{user.profileImageData}}" />
+					<img ng-if="user.profileImageData" class="found-user-image" src="{{user.profileImageData}}" />
 				</div>
 				<div>{{user.name}}</div>
 			</div>
@@ -28,7 +28,7 @@
 		<li ng-repeat="friendRequest in friendRequests">
 			<div class="friend-request-container">
 				<div>
-					<img src="{{friendRequest.user.profileImageData}}">
+					<img ng-if="friendRequest.user.profileImageData" class="friend-request-user-image" src="{{friendRequest.user.profileImageData}}">
 				</div>
 				<div>{{friendRequest.user.name}}</div>
 			</div>
