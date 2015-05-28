@@ -154,6 +154,16 @@ label {
 
 .friend-container {
     float: left;
-    width: 100px;
+    width: 97px;
     height: 75px;
+}
+
+.request-button {
+    background-color: rgb(91, 155, 213);
+    color: white;
+    width: 70px;
+    height: 30px;
+    display: inline-block;
+    padding-top: 5px;
+    cursor: pointer;
 }

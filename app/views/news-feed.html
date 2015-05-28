@@ -29,11 +29,15 @@
 	</ul>
 	<ul type="none" ng-if="friendRequestsExist" id="friend-request-list">
 		<li ng-repeat="friendRequest in friendRequests">
-			<div class="friend-request-container">
+			<div class="friend-request-container" id="{{friendRequest.id}}">
 				<div>
 					<img ng-if="friendRequest.user.profileImageData" class="friend-request-user-image" src="{{friendRequest.user.profileImageData}}">
 				</div>
 				<div>{{friendRequest.user.name}}</div>
+				<div>
+					<a ng-click="acceptFriendRequest(friendRequest.id)" class="request-button">Accept</a>
+					<a ng-click="rejectFriendRequest(friendRequest.id)" class="request-button">Reject</a>
+				</div>
 			</div>
 		</li>
 		<a ng-click="hideFriendRequests()" class="button">Hide</a>

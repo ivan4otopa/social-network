@@ -1,4 +1,4 @@
-socialNetwork.controller('ProfileController', function ($scope, userService, authenticationService, notifyService) {
+socialNetwork.controller('ProfileController', function ($scope, userService, friendService, authenticationService, notifyService) {
 	$scope.foundUsersExist = false;
 	$scope.friendRequestsExist = false;
 
@@ -26,9 +26,10 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 		);
 	};
 
-	$scope.getFriendRequests = (function () {
+	$scope.getFriendRequests = function () {
 		userService.getFriendRequests(
 			function success(data) {
+				console.log(data);
 				$scope.friendRequests = data;
 				$scope.numberOfFriendRequests = data.length;
 			},
@@ -36,9 +37,11 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 
 			}
 		);
-	})();
+	};
 
-	$scope.getOwnFriends = (function () {
+	$scope.getFriendRequests();
+
+	$scope.getOwnFriends = function () {
 		userService.getOwnFriends(
 			function success(data) {
 				$scope.friends = data;
@@ -48,7 +51,35 @@ socialNetwork.controller('ProfileController', function ($scope, userService, aut
 
 			}
 		);
-	}());
+	};
+
+	$scope.getOwnFriends();
+
+	$scope.acceptFriendRequest = function (requestId) {
+		friendService.acceptFriendRequest(
+			requestId,
+			function success(data) {
+				$scope.getFriendRequests();
+				$scope.getOwnFriends();
+			},
+			function error () {
+
+			}
+		);
+	};
+
+	$scope.rejectFriendRequest = function (requestId) {
+		friendService.rejectFriendRequest(
+			requestId,
+			function success(data) {
+				$scope.getFriendRequests();
+				$scope.getOwnFriends();
+			},
+			function error() {
+
+			}
+		);
+	};
 
 	$scope.hideFoundUsers = function () {
 		$scope.foundUsersExist = false;
