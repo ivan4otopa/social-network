@@ -29,7 +29,6 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 	$scope.getFriendRequests = function () {
 		userService.getFriendRequests(
 			function success(data) {
-				console.log(data);
 				$scope.friendRequests = data;
 				$scope.numberOfFriendRequests = data.length;
 			},
@@ -44,7 +43,7 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 	$scope.getOwnFriends = function () {
 		userService.getOwnFriends(
 			function success(data) {
-				$scope.friends = data;
+				$scope.friends = shuffle(data).slice(0, 6);
 				$scope.friendsCount = data.length;
 			},
 			function error() {
@@ -93,4 +92,20 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 	$scope.hideFriendRequests = function () {
 		$scope.friendRequestsExist = false;
 	};
+
+	function shuffle(array) {
+		var currentIndex = array.length,
+			temporaryValue,
+			randomIndex;
+
+    	while (0 !== currentIndex) {
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		}
+
+	  return array;
+	}
 });
