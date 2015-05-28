@@ -1,1 +1,77 @@
-a
+<div ng-controller="ProfileController">
+	<span id="name">{{user.name}}</span>
+	<span>
+		<img src="{{user.profileImageData}}" id="profile-image" />
+	</span>
+	<span id="user-search">
+		<input type="text" id="search-users" ng-model="userSearchText" ng-change="getUsersByName(userSearchText)" placeholder="Search..." />
+	</span>
+	<span id="options-menu">
+		<a href="#/" class="navigation-button">News Feed</a>
+		<a ng-click="pendingFriendRequestsClicked()" class="navigation-button">Pending Friend Requests</a><span id="requests-number">{{numberOfFriendRequests}}</span>
+		<a href="#/profile" class="navigation-button">Edit Profile</a>
+		<a href="#/profile/password" class="navigation-button">Change Password</a>
+		<a href="#/logout" class="navigation-button">Logout</a>
+	</span>
+	<hr>
+	<h3>Edit Profile</h3>
+	<hr>
+	<ul type="none" ng-if="foundUsersExist" id="found-users-list">
+		<li ng-repeat="user in foundUsers">
+			<div class="user-container">
+				<div>
+					<img ng-if="user.profileImageData" class="found-user-image" src="{{user.profileImageData}}" />
+				</div>
+				<div>{{user.name}}</div>
+			</div>
+		</li>
+		<a ng-click="hideFoundUsers()" class="button">Hide</a>
+	</ul>
+	<ul type="none" ng-if="friendRequestsExist" id="friend-request-list">
+		<li ng-repeat="friendRequest in friendRequests">
+			<div class="friend-request-container" id="{{friendRequest.id}}">
+				<div>
+					<img ng-if="friendRequest.user.profileImageData" class="friend-request-user-image" src="{{friendRequest.user.profileImageData}}">
+				</div>
+				<div>{{friendRequest.user.name}}</div>
+				<div>
+					<a ng-click="acceptFriendRequest(friendRequest.id)" class="request-button">Accept</a>
+					<a ng-click="rejectFriendRequest(friendRequest.id)" class="request-button">Reject</a>
+				</div>
+			</div>
+		</li>
+		<a ng-click="hideFriendRequests()" class="button">Hide</a>
+	</ul>
+	<div id="edit-profile-container">
+		<div id="edit-profile-picture-container" class="col-md-4">
+			<label for="profile-image">Profile Picture:</label><br />
+			<input type="file" id="profileImage" onchange="angular.element(this).scope().fileProfileImageSelected(this)" />
+			<input type="button" value="Browse" onclick="$('#profileImage').click()">
+			<div id="profile-image-box">
+				<p>Image Preview</p>
+			</div>
+		</div>
+		<div id="edit-profile-information-container" class="col-md-8">
+			<div id="labels-container" class="col-md-6">
+				<label>Name</label><br />
+				<label>Email</label><br />
+				<label>Gender</label><br />
+				<label>Cover Picture</label><br />
+			</div>
+			<div id="input-fields-container" class="col-md-6">
+				<input type="text" ng-model="userData.name">
+				<input type="email" ng-model="userData.email"><br />
+				<input type="radio" ng-model="userData.gender" name="gender" value="1">Male
+				<input type="radio" ng-model="userData.gender" name="gender" value="2">Female
+				<input type="radio" ng-model="userData.gender" name="gender" value="0">Other
+				<label for="image">Cover Image:</label>
+				<input type="file" id="cover-image" onchange="angular.element(this).scope().fileCoverImageSelected(this)" />
+				<input type="button" value="Browse" onclick="$('#cover-image').click()">
+				<div id="cover-image-box">
+					<p>Image Preview</p>
+				</div>
+			</div>
+		</div>
+		<a class="button">Save Changes</a>
+	</div>
+</div>

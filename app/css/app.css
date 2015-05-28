@@ -167,3 +167,56 @@ label {
     padding-top: 5px;
     cursor: pointer;
 }
+
+#edit-profile-container, #edit-profile-picture-container, #edit-profile-information-container {
+    border: 1px solid black;
+}
+
+#edit-profile-container {
+    height: 350px;
+    padding: 20px;
+}
+
+#edit-profile-picture-container {
+    height: 250px;
+    width: 220px;
+    padding-top: 20px;
+}
+
+#edit-profile-information-container {
+    height: 250px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+#profile-image-box {
+    border: 1px solid black;
+    width: 180px;
+    height: 130px;
+    padding-top: 10px;
+}
+
+#preview-profile-image {
+    max-width: 178px;
+}
+
+#profileImage {
+    display: none;
+}
+
+#labels-container, #input-fields-container {
+    height: 200px;
+}
+
+#cover-image {
+    display: none;
+}
+
+#cover-image-box {
+    border: 1px solid black;
+}
+
+#preview-cover-image {
+    max-width: 100px;
+}

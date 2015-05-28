@@ -1,6 +1,7 @@
 socialNetwork.controller('ProfileController', function ($scope, userService, friendService, authenticationService, notifyService) {
 	$scope.foundUsersExist = false;
 	$scope.friendRequestsExist = false;
+	$scope.userData = {};
 
 	$scope.getCurrentUserInfo = (function () {
 		userService.getCurrentUserInfo(
@@ -82,7 +83,7 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 
 	$scope.hideFoundUsers = function () {
 		$scope.foundUsersExist = false;
-		$('search-users').val('');
+		$('#search-users').val('');
 	};
 
 	$scope.pendingFriendRequestsClicked = function () {
@@ -108,4 +109,41 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 
 	  return array;
 	}
+
+	$scope.fileProfileImageSelected = function (fileInputField) {
+		console.log('a');
+		delete $scope.userData.profileImageData;
+		var file = fileInputField.files[0];
+
+		if(file.type.match(/image\/.*/)) {
+			var reader = new FileReader();
+
+			reader.onload = function () {
+				$scope.userData.profileImageData = reader.result;
+				$('#profile-image-box').html('<img id="preview-profile-image" src="' + reader.result + '">');
+			}
+
+			reader.readAsDataURL(file);
+		} else {
+			$('#profile-image-box').html('<p>File type not supported</p>');
+		}
+	};
+
+	$scope.fileCoverImageSelected = function (fileInputField) {
+		delete $scope.userData.coverImageData;
+		var file = fileInputField.files[0];
+
+		if(file.type.match(/image\/.*/)) {
+			var reader = new FileReader();
+
+			reader.onload = function () {
+				$scope.userData.coverImageData = reader.result;
+				$('#cover-image-box').html('<img id="preview-cover-image" src="' + reader.result + '">');
+			}
+
+			reader.readAsDataURL(file);
+		} else {
+			$('#cover-image-box').html('<p>File type not supported</p>');
+		}
+	};
 });
