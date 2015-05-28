@@ -16,5 +16,10 @@ socialNetwork.config(function ($routeProvider) {
 		templateUrl: 'views/changePassword.html'
 	});
 
+	$routeProvider.when('/logout', {
+		templateUrl: 'views/logout.html',
+		controller: 'LogoutController'
+	});
+
 	$routeProvider.otherwise({ redirectTo: '/'});
 });

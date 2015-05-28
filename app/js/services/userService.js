@@ -47,6 +47,18 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 					success(data);
 				})
 				.error(error);
+		},
+		logout: function (success, error) {
+			var request = {
+				method: 'POST',
+				url: baseServiceUrl + '/api/users/logout',
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
 		}
 	};
 });
