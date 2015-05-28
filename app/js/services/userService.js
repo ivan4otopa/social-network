@@ -59,6 +59,19 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 					success(data);
 				})
 				.error(error);
+		},
+		editProfile: function (userData, success, error) {
+			var request = {
+				method: 'PUT',
+				url: baseServiceUrl + '/api/me',
+				headers: authenticationService.getAuthorizationHeaders(),
+				data: userData
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
 		}
 	};
 });

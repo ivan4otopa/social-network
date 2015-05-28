@@ -3,7 +3,22 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 	$scope.friendRequestsExist = false;
 	$scope.userData = {};
 
-	$scope.getCurrentUserInfo = (function () {
+	$scope.editProfile = function (userData) {
+		userService.editProfile(
+			userData,
+			function success(data) {
+				notifyService.showInfo('Profile edit successful');
+				$scope.getCurrentUserInfo();
+				$('#input-fields-container > input[type="text"]').val('');
+				$('#input-fields-container > input[type="email"]').val('');
+			},
+			function error(error) {
+				notifyService.showError('Profile edit failed', error);
+			}
+		);
+	};
+
+	$scope.getCurrentUserInfo = function () {
 		userService.getCurrentUserInfo(
 			function success(data) {
 				$scope.user = data;
@@ -12,7 +27,9 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 
 			}
 		);
-	})();
+	};
+
+	$scope.getCurrentUserInfo();
 
 	$scope.getUsersByName = function (userSearchText) {
 		userService.getUsersByName(
@@ -107,11 +124,10 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 		    array[randomIndex] = temporaryValue;
 		}
 
-	  return array;
+	    return array;
 	}
 
 	$scope.fileProfileImageSelected = function (fileInputField) {
-		console.log('a');
 		delete $scope.userData.profileImageData;
 		var file = fileInputField.files[0];
 
