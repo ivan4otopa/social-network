@@ -45,8 +45,8 @@
 			<a ng-if="!user.isFriend" style="position: absolute;top: 210px; left: 190px;background-color: rgb(91, 155, 213);color: white;width: 70px;height: 30px;cursor: pointer;padding-top: 5px;" ng-click="sendFriendRequest()">
 				Invite
 			</a>
-			<div id="friend-cover-image">
-				<img src="{{user.coverImageData}}">
+			<div>
+				<img src="{{user.coverImageData}}" id="friend-cover-image">
 			</div>
 			<div>
 				<img src="{{user.profileImageData}}" id="friend-profile-image">

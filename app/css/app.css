@@ -285,3 +285,7 @@ td:nth-of-type(2) {
     border: 2px solid black;
     max-width: 150px;
 }
+
+#friend-cover-image {
+    max-width: 290px;
+}
