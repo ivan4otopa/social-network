@@ -1,8 +1,5 @@
 <div ng-controller="ProfileController">
 	<span id="name">{{user.name}}</span>
-	<span>
-		<img src="{{user.profileImageData}}" id="profile-image" />
-	</span>
 	<span id="user-search">
 		<input type="text" id="search-users" ng-model="userSearchText" ng-change="getUsersByName(userSearchText)" placeholder="Search..." />
 	</span>
@@ -12,6 +9,9 @@
 		<a href="#/profile" class="navigation-button">Edit Profile</a>
 		<a href="#/profile/password" class="navigation-button">Change Password</a>
 		<a href="#/logout" class="navigation-button">Logout</a>
+	</span>
+	<span>
+		<img src="{{user.profileImageData}}" id="profile-image" />
 	</span>
 	<hr>
 	<h3>News Feed</h3>

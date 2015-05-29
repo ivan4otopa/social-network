@@ -1,9 +1,9 @@
 socialNetwork.controller('UserWallController', function ($scope, $routeParams, userService) {
-	$scope.getFriendFullDetails = function () {
-		userService.getFriendFullDetails(
+	$scope.getUserFullDetails = function () {
+		userService.getUserFullDetails(
 			$routeParams.username,
 			function success(data) {
-				$scope.friend = data;
+				$scope.user = data;
 			},
 			function error(error) {
 
@@ -11,13 +11,13 @@ socialNetwork.controller('UserWallController', function ($scope, $routeParams, u
 		);
 	};
 
-	$scope.getFriendFullDetails();
+	$scope.getUserFullDetails();
 
-	$scope.getFriendFriends = function () {
-		userService.getFriendFriends(
+	$scope.getUserFriends = function () {
+		userService.getUserFriends(
 			$routeParams.username,
 			function success(data) {
-				$scope.friendFriends = data;
+				$scope.userFriends = data;
 				$scope.friendsCount = data.length;
 			},
 			function error(error) {
@@ -26,5 +26,17 @@ socialNetwork.controller('UserWallController', function ($scope, $routeParams, u
 		);
 	};
 
-	$scope.getFriendFriends();
+	$scope.getUserFriends();
+
+	$scope.sendFriendRequest = function () {
+		friendService.sendFriendRequest(
+			$routeParams.username,
+			function success(data) {
+
+			},
+			function error (error) {
+
+			}
+		);
+	};
 });

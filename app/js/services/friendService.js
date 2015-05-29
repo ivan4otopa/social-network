@@ -23,6 +23,18 @@ socialNetwork.factory('friendService', function ($http, baseServiceUrl, authenti
 					success(data);
 				})
 				.error(error);
+		},
+		sendFriendRequest: function (username, success, error) {
+			var request = {
+				method: 'POST',
+				url: baseServiceUrl + '/api/me/requests/' + username,
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
 		}
 	}
 })

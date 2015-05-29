@@ -86,7 +86,7 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 				})
 				.error(error);
 		},
-		getFriendFullDetails: function (username, success, error) {
+		getUserFullDetails: function (username, success, error) {
 			var request = {
 				method: 'GET',
 				url: baseServiceUrl + '/api/users/' + username,
@@ -98,7 +98,7 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 				})
 				.error(error);
 		},
-		getFriendFriends: function (username, success, error) {
+		getUserFriends: function (username, success, error) {
 			var request = {
 				method: 'GET',
 				url: baseServiceUrl + '/api/users/' + username + '/friends',
