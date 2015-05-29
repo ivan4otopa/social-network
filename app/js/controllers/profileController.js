@@ -58,10 +58,10 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 
 	$scope.getFriendRequests();
 
-	$scope.getOwnFriends = function () {
+	$scope.getSixOwnFriends = function () {
 		userService.getOwnFriends(
 			function success(data) {
-				$scope.friends = shuffle(data).slice(0, 6);
+				$scope.sixFriends = shuffle(data).slice(0, 6);
 				$scope.friendsCount = data.length;
 			},
 			function error() {
@@ -70,7 +70,20 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 		);
 	};
 
-	$scope.getOwnFriends();
+	$scope.getSixOwnFriends();
+
+	$scope.getAllOwnFriends = function () {
+		userService.getOwnFriends(
+			function success(data) {
+				$scope.friends = shuffle(data);
+			},
+			function error(error) {
+
+			}
+		);
+	};
+
+	$scope.getAllOwnFriends();
 
 	$scope.acceptFriendRequest = function (requestId) {
 		friendService.acceptFriendRequest(

@@ -232,3 +232,38 @@ label {
     margin-left: 200px;
     padding-top: 40px;
 }
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 50px;
+}
+
+table {
+    margin-left: 150px;
+}
+
+td:first-of-type {
+    width: 80px;
+}
+
+td:nth-of-type(2) {
+    width: 300px;
+}
+
+.friend-profile-image {
+    max-width: 74px;
+}
+
+.friend-container {
+    border: 1px solid black;
+}
+
+.friend-name {
+    color: gray;
+    position: relative;
+    top: -20px;
+}

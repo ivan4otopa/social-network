@@ -21,5 +21,9 @@ socialNetwork.config(function ($routeProvider) {
 		controller: 'LogoutController'
 	});
 
+	$routeProvider.when('/profile/friends', {
+		templateUrl: 'views/currentUserFriends.html'
+	});
+
 	$routeProvider.otherwise({ redirectTo: '/'});
 });
