@@ -72,6 +72,19 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 					success(data);
 				})
 				.error(error);
+		},
+		changePassword: function (passwordData, success, error) {
+			var request = {
+				method: 'PUT',
+				url: baseServiceUrl + '/api/me/changepassword',
+				headers: authenticationService.getAuthorizationHeaders(),
+				data: passwordData
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
 		}
 	};
 });

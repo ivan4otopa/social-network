@@ -116,7 +116,7 @@ label {
 
 #friend-request-list {
     position: absolute;
-    left: 120px;
+    left: 160px;
     top: 27px;
     border: 1px solid black;
     padding-left: 0;
@@ -223,4 +223,12 @@ label {
 
 #profile-image {
     max-width: 50px;
+}
+
+#change-password-container {
+    border: 1px solid black;
+    width: 400px;
+    height: 270px;
+    margin-left: 200px;
+    padding-top: 40px;
 }

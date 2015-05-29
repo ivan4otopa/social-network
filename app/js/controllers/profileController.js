@@ -98,6 +98,20 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 		);
 	};
 
+	$scope.changePassword = function (passwordData) {
+		userService.changePassword(
+			passwordData,
+			function success(data) {
+				notifyService.showInfo('Password change successful');
+				$('#change-password-container > .col-md-6 > input').val('');
+			},
+			function error(error) {
+				notifyService.showError('Password change failed');
+				$('#change-password-container > .col-md-6 > input').val('');
+			}
+		);
+	};
+
 	$scope.hideFoundUsers = function () {
 		$scope.foundUsersExist = false;
 		$('#search-users').val('');
