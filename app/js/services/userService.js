@@ -85,6 +85,30 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 					success(data);
 				})
 				.error(error);
+		},
+		getFriendFullDetails: function (username, success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/users/' + username,
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
+		},
+		getFriendFriends: function (username, success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/users/' + username + '/friends',
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
 		}
 	};
 });

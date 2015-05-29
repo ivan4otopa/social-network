@@ -13,9 +13,6 @@
 		<a href="#/profile/password" class="navigation-button">Change Password</a>
 		<a href="#/logout" class="navigation-button">Logout</a>
 	</span>
-	<hr>
-	<h3>News Feed</h3>
-	<hr>
 	<ul type="none" ng-if="foundUsersExist" id="found-users-list">
 		<li ng-repeat="user in foundUsers">
 			<div class="user-container">
@@ -42,10 +39,10 @@
 		</li>
 		<a ng-click="hideFriendRequests()" class="button">Hide</a>
 	</ul>
-	<div id="friends-list">
-		<div id="friends-count">Friends - <a href="#/profile/friends">{{friendsCount}}</a> total</div>
+	<div id="friends-list" ng-controller="UserWallController">
+		<div id="friends-count">Friends - <a href="#/users/{{friend.username}}/friends">{{friendsCount}}</a> total</div>
 		<div>
-			<span ng-repeat="friend in sixFriends" class="friend-container">
+			<span ng-repeat="friend in friendFriends" class="friend-container">
 				<a href="#/users/{{friend.username}}">
 					<img ng-if="friend.profileImageData" src="{{friend.profileImageData}}" class="friend-profile-image" />
 					<span ng-if="friend.profileImageData" class="friend-name-with-image">

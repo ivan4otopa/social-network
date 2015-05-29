@@ -262,8 +262,12 @@ td:nth-of-type(2) {
     border: 1px solid black;
 }
 
-.friend-name {
+.friend-name-with-image {
     color: gray;
     position: relative;
     top: -20px;
+}
+
+.friend-name-without-image {
+    color: gray;
 }
