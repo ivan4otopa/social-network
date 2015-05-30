@@ -59,7 +59,7 @@
 		<div id="friends-list">
 			<div id="friends-count">Friends - <a href="#/users/{{user.username}}/friends">{{friendsCount}}</a> total</div>
 			<div>
-				<span ng-repeat="friend in userFriends" class="friend-container">
+				<span ng-repeat="friend in sixUserFriends" class="friend-container">
 					<a href="#/users/{{friend.username}}">
 						<img ng-if="friend.profileImageData" src="{{friend.profileImageData}}" class="friend-profile-image" />
 						<span ng-if="friend.profileImageData" class="friend-name-with-image">

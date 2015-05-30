@@ -13,11 +13,11 @@ socialNetwork.controller('UserWallController', function ($scope, $routeParams, u
 
 	$scope.getUserFullDetails();
 
-	$scope.getUserFriends = function () {
+	$scope.getSixUserFriends = function () {
 		userService.getUserFriends(
 			$routeParams.username,
 			function success(data) {
-				$scope.userFriends = data;
+				$scope.sixUserFriends = shuffle(data).slice(0, 6);
 				$scope.friendsCount = data.length;
 			},
 			function error(error) {
@@ -26,7 +26,7 @@ socialNetwork.controller('UserWallController', function ($scope, $routeParams, u
 		);
 	};
 
-	$scope.getUserFriends();
+	$scope.getSixUserFriends();
 
 	$scope.sendFriendRequest = function () {
 		friendService.sendFriendRequest(
@@ -38,5 +38,21 @@ socialNetwork.controller('UserWallController', function ($scope, $routeParams, u
 
 			}
 		);
+	};
+
+	function shuffle(array) {
+		var currentIndex = array.length,
+			temporaryValue,
+			randomIndex;
+
+    	while (0 !== currentIndex) {
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		}
+
+	    return array;
 	};
 });

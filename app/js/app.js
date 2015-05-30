@@ -29,5 +29,9 @@ socialNetwork.config(function ($routeProvider) {
 		templateUrl: 'views/userWall.html'
 	});
 
+	$routeProvider.when('/users/:username/friends', {
+		templateUrl: 'views/userFriends.html'
+	});
+
 	$routeProvider.otherwise({ redirectTo: '/'});
 });

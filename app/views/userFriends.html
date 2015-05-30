@@ -14,7 +14,7 @@
 		<img src="{{user.profileImageData}}" id="profile-image" />
 	</span>
 	<hr>
-	<h3>{{user.name}} - Friends ({{friendsCount}} total)</h3>
+	<h3 ng-controller="UserFriendsController">{{user.name}} - Friends ({{friendsCount}} total)</h3>
 	<hr>
 	<ul type="none" ng-if="foundUsersExist" id="found-users-list">
 		<li ng-repeat="user in foundUsers">
@@ -42,7 +42,7 @@
 		</li>
 		<a ng-click="hideFriendRequests()" class="button">Hide</a>
 	</ul>
-	<table>
+	<table ng-controller="UserFriendsController">
 		<thead>
 			<tr>
 				<td>Profile Picture</td>
@@ -50,7 +50,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="friend in friends">
+			<tr ng-repeat="friend in userFriends">
 				<td>
 					<a href="#/users/{{friend.username}}">
 						<img ng-if="friend.profileImageData" src="{{friend.profileImageData}}" class="friend-profile-image-table" />
