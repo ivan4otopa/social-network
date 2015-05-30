@@ -1,4 +1,4 @@
-socialNetwork.controller('UserWallController', function ($scope, $routeParams, userService) {
+socialNetwork.controller('UserWallController', function ($scope, $routeParams, userService, friendService) {
 	$scope.getUserFullDetails = function () {
 		userService.getUserFullDetails(
 			$routeParams.username,

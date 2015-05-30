@@ -90,7 +90,7 @@ socialNetwork.controller('ProfileController', function ($scope, userService, fri
 			requestId,
 			function success(data) {
 				$scope.getFriendRequests();
-				$scope.getOwnFriends();
+				$scope.getAllOwnFriends();
 			},
 			function error () {
 

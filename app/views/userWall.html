@@ -16,10 +16,12 @@
 	<ul type="none" ng-if="foundUsersExist" id="found-users-list">
 		<li ng-repeat="user in foundUsers">
 			<div class="user-container">
-				<div>
-					<img ng-if="user.profileImageData" class="found-user-image" src="{{user.profileImageData}}" />
-				</div>
-				<div>{{user.name}}</div>
+				<a href="#/users/{{user.username}}">
+					<div>
+						<img ng-if="user.profileImageData" class="found-user-image" src="{{user.profileImageData}}" />
+					</div>
+					<div>{{user.name}}</div>
+				</a>
 			</div>
 		</li>
 		<a ng-click="hideFoundUsers()" class="button">Hide</a>
@@ -27,10 +29,12 @@
 	<ul type="none" ng-if="friendRequestsExist" id="friend-request-list">
 		<li ng-repeat="friendRequest in friendRequests">
 			<div class="friend-request-container" id="{{friendRequest.id}}">
-				<div>
-					<img ng-if="friendRequest.user.profileImageData" class="friend-request-user-image" src="{{friendRequest.user.profileImageData}}">
-				</div>
-				<div>{{friendRequest.user.name}}</div>
+				<a href="#/users/{{friendRequest.user.username}}">
+					<div>
+						<img ng-if="friendRequest.user.profileImageData" class="friend-request-user-image" src="{{friendRequest.user.profileImageData}}">
+					</div>
+					<div>{{friendRequest.user.name}}</div>
+				</a>
 				<div>
 					<a ng-click="acceptFriendRequest(friendRequest.id)" class="request-button">Accept</a>
 					<a ng-click="rejectFriendRequest(friendRequest.id)" class="request-button">Reject</a>
