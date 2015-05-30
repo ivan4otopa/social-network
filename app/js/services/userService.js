@@ -109,6 +109,6 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 					success(data);
 				})
 				.error(error);
-		}
+		},
 	};
 });
