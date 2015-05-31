@@ -98,6 +98,7 @@ label {
     top: 28px;
     border: 1px solid black;
     padding-left: 0;
+    background-color: white
 }
 
 .user-container, .friend-request-container {
@@ -116,6 +117,7 @@ label {
     top: 27px;
     border: 1px solid black;
     padding-left: 0;
+    background-color: white;
 }
 
 #requests-number {
