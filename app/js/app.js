@@ -1,6 +1,7 @@
 var socialNetwork = angular.module('SocialNetwork', ['ngRoute']);
 
 socialNetwork.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
+socialNetwork.constant('pageSize', 2);
 
 socialNetwork.config(function ($routeProvider) {
 	$routeProvider.when('/', {

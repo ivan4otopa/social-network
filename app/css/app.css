@@ -135,6 +135,15 @@ label {
     width: 300px;
     height: 180px;
     margin-left: 470px;
+    padding-left: 0;
+}
+
+#friends-list-news-feed {
+    border: 1px solid black;
+    width: 300px;
+    height: 180px;
+    margin-left: 20px;
+    padding-left: 0;
 }
 
 #friends-count {
@@ -152,7 +161,7 @@ label {
 
 .friend-container {
     float: left;
-    width: 97px;
+    width: 94px;
     height: 75px;
 }
 
@@ -290,4 +299,20 @@ td:nth-of-type(2) {
 
 #friend-cover-image {
     max-width: 290px;
+}
+
+#posts {
+    border: 1px solid black;
+    height: 400px;
+}
+
+.post-box {
+    border: 1px solid black;
+    height: 100px;
+    margin-left: -30px;
+    margin-bottom: 20px;
+}
+
+.post-author-profile-image {
+    max-width: 50px;
 }

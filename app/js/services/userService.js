@@ -1,4 +1,4 @@
-socialNetwork.factory('userService', function ($http, baseServiceUrl, authenticationService) {
+socialNetwork.factory('userService', function ($http, baseServiceUrl, pageSize, authenticationService) {
 	return {
 		getCurrentUserInfo: function (success, error) {
 			var request = {
@@ -110,5 +110,17 @@ socialNetwork.factory('userService', function ($http, baseServiceUrl, authentica
 				})
 				.error(error);
 		},
+		getNewsFeed: function (success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/me/feed?pageSize=' + pageSize,
+				headers: authenticationService.getAuthorizationHeaders()
+			};
+			$http(request)
+				.success(function (data) {
+					success(data);
+				})
+				.error(error);
+		}
 	};
 });

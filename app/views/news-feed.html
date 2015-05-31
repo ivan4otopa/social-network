@@ -46,7 +46,28 @@
 		</li>
 		<a ng-click="hideFriendRequests()" class="button">Hide</a>
 	</ul>
-	<div id="friends-list">
+	<div id="posts" class="col-md-7" ng-controller="PostsController">
+		<h2>Posts</h2>
+		<ul type="none">
+			<li ng-repeat="post in posts" class="post-box">
+				<div class="col-md-4">
+					<div>
+						<img src="{{post.author.profileImageData}}"  class="post-author-profile-image"/>
+					</div>
+					<div>
+						{{post.author.name}}
+					</div>
+					<div>
+						{{post.date | date: 'd-M-yyyy'}}
+					</div>
+				</div>
+				<div class="col-md-8">
+					{{post.postContent}}
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="friends-list-news-feed" class="col-md-5">
 		<div id="friends-count">Friends - <a href="#/profile/friends">{{friendsCount}}</a> total</div>
 		<div>
 			<span ng-repeat="friend in sixFriends" class="friend-container">
